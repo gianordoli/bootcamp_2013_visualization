@@ -17,7 +17,6 @@ August, 2014
    * student
    * tags
    * date
-
   
   * Scraped [data](https://raw.githubusercontent.com/gianordoli/bootcamp_2013_visualization/master/_data/bootcamp_2013_students.tsv) from the [people page](http://bootcamp.parsons.edu/2013/people), to get a list of students and teams
     

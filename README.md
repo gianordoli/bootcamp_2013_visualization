@@ -13,11 +13,10 @@ August, 2014
 **1. Acquire**
 
   * Scraped [data](https://raw.githubusercontent.com/gianordoli/bootcamp_2013_visualization/master/_data/kimonoData.csv) from the [Bootcamp 2013 website](http://bootcamp.parsons.edu/2013/) using [Kimono](https://www.kimonolabs.com/):
-	* post + href
-	* student
-	* tags
-	* date
-  
+  * post + href
+  * student
+  * tags
+  * date
 
   
   * Scraped [data](https://raw.githubusercontent.com/gianordoli/bootcamp_2013_visualization/master/_data/bootcamp_2013_students.tsv) from the [people page](http://bootcamp.parsons.edu/2013/people), to get a list of students and teams

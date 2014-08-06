@@ -8,6 +8,10 @@
  Visualizing all posts from http://bootcamp.parsons.edu/2013/
  Data Scraped with https://www.kimonolabs.com/
  
+ **IMPORTANT**
+ Because the HashMap functions are a bit different in JavaScript and Java,
+ this sketch only works in JavaScript mode.
+ 
  * Parsing data and storing as objects
  * Drawing each post as a square
    //Experiment with different values for spacing and square size

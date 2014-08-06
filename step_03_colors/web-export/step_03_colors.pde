@@ -1,9 +1,12 @@
 /* ---------------------------------------------------------------------------
- Dorkshop: Data Visualization
+ Bootcamp 2013 Visualization
  MFADT, Parsons The New School for Design
- August 9th, 2014
+ August, 2014
  Gabriel Gianordoli
  http://gianordoli.com
+ 
+ Visualizing all posts from http://bootcamp.parsons.edu/2013/
+ Data Scraped with https://www.kimonolabs.com/
  
  * Parsing data and storing as objects
  * Drawing each post as a square
@@ -31,6 +34,7 @@ void setup(){
   classes.put("Code", 0);
   classes.put("Design", 0);
   classes.put("Web", 0);
+  classes.put("Uncategorized", 0);  
   
   //This function will:
   //1 - Load the "teams x students" tsv
@@ -99,6 +103,9 @@ class Post{
     int b = 255;
     if(mode.equals("classes")){
       h = classes.get(tags[0]);
+      if(tags[0].equals("Uncategorized")){
+        s = 30;
+      }       
     }else if(mode.equals("teams")){
       h = teams.get(team);
       if(team.equals("faculty")){
@@ -133,6 +140,7 @@ void parseData(){
       teams.put(team, 0);
     }
   }
+  teams.put("faculty", 0);
 //  for(int i = 0; i < students.length; i++){
 //    println(students[i][0] + "\t" + students[i][1]);
 //  }
@@ -146,13 +154,13 @@ void parseData(){
     String title = trim(myLine[0]);
     
     //TITLE HREF
-    String titleHref = "";    
+    String titleHref = trim(myLine[1]);    
     
     //AUTHOR
-    String author = trim(myLine[1]);
+    String author = trim(myLine[2]);
     
     //AUTHOR HREF
-    String authorHref = trim(myLine[2]);
+    String authorHref = trim(myLine[3]);
     
     //TEAM
     String team = "faculty";
@@ -169,21 +177,23 @@ void parseData(){
     
     //TAGS
     //I want to store only code/design/web in tags. So...
-    String[] originalTags = split(trim(myLine[3]), ",");
+    String[] originalTags = split(trim(myLine[4]), ",");
 //    printArray(originalTags);
     String[] tags = new String[0];
     for(int j = 0; j < originalTags.length; j++){
       String thisTag = trim(originalTags[j]);
 //      println(thisTag);
-
         if(classes.containsKey(thisTag)){
           tags = append(tags, thisTag);
         }
     }
+    if(tags.length == 0){
+      tags = append(tags, "Uncategorized");
+    }
 //    printArray(tags);
 
     //DATE
-    String date = trim(myLine[4]);
+    String date = trim(myLine[5]);
     
     //Creating the object
     Post thisPost = new Post(title, titleHref, author, authorHref, team, tags, date);
@@ -191,6 +201,6 @@ void parseData(){
     //Pushing it to the ArrayList
     allPosts.add(thisPost);
   }
-//  println(allPosts.size());
+  println(allPosts.size());
 }
 

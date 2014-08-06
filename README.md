@@ -18,16 +18,18 @@ August, 2014
     * tags
     * date
   * Scraped data from the [people page](http://bootcamp.parsons.edu/2013/people), to get a list of students and teams
+  * Original data in [kimonoData.csv](https://raw.githubusercontent.com/gianordoli/bootcamp_2013_visualization/master/_data/kimonoData.csv)
     
 **2. Parse**
 
   * Converted from csv to tsv using [Google Spreadsheets](https://docs.google.com/spreadsheets)
   	* File > Import > Upload
   	* File > Download as > Tab-separated values
+  * Parsed data in [bootcamp_2013_posts.tsv](https://raw.githubusercontent.com/gianordoli/bootcamp_2013_visualization/master/_data/bootcamp_2013_posts.tsv)
   	
 **3. Filter**
 
-  * Using step_01_dataToObjects:
+  * Using [step_01_dataToObjects](https://github.com/gianordoli/bootcamp_2013_visualization/tree/master/step_01_dataToObjects):
     * Filtered out tags and left only classes (Code, Design, Web, and Uncategorized)
     * Crossing data with the students list, assigned teams to each student
     * Assigned "faculty" to teachers

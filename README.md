@@ -17,8 +17,10 @@ August, 2014
     * student
     * tags
     * date
-  * Scraped data from the [people page](http://bootcamp.parsons.edu/2013/people), to get a list of students and teams
   * Original data in [kimonoData.csv](https://raw.githubusercontent.com/gianordoli/bootcamp_2013_visualization/master/_data/kimonoData.csv)
+  
+  * Scraped data from the [people page](http://bootcamp.parsons.edu/2013/people), to get a list of students and teams
+    * Data in [bootcamp_2013_students.tsv](https://raw.githubusercontent.com/gianordoli/bootcamp_2013_visualization/master/_data/bootcamp_2013_students.tsv)
     
 **2. Parse**
 

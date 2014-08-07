@@ -8,6 +8,10 @@
  Visualizing all posts from http://bootcamp.parsons.edu/2013/
  Data Scraped with https://www.kimonolabs.com/
  
+ **IMPORTANT**
+ Because the HashMap functions are a bit different in JavaScript and Java,
+ this sketch only works in JavaScript mode. 
+ 
  * Parsing data and storing as objects
  * Drawing each post as a square
    //Experiment with different values for spacing and square size
@@ -37,7 +41,7 @@ int sqSize = 22;
 
 float value = 0;
 float prevValue = 0;
-float targetValue = 0;
+float targetValue = 2;
 
 void setup(){
   size(1333, 768);
@@ -73,6 +77,7 @@ void draw(){
   
   //Easing
   value += (targetValue - value) * 0.1;
+//  println(value);
   
   for(int i = 0; i < allPosts.size(); i++){
     Post thisPost = allPosts.get(i);
@@ -82,7 +87,7 @@ void draw(){
       pos.y = map(value, prevValue, targetValue, thisPost.positions.get(prevValue).y, thisPost.positions.get(targetValue).y);
     }else{
       pos.x = thisPost.positions.get(targetValue).x;
-      pos.y = thisPost.positions.get(targetValue).y;      
+      pos.y = thisPost.positions.get(targetValue).y;
     }
     thisPost.display(pos);
   }  
@@ -92,15 +97,19 @@ void keyPressed() {
   //By hitting space, we can switch between the two color modes
   if (key == ' ') {
     mode = (mode.equals("classes")) ? ("teams"):("classes");
-  }else if(key == '0'){
-    prevValue = targetValue;
-    targetValue = 0;
-  }else if(key == '1'){
-    prevValue = targetValue;
-    targetValue = 1;
-  }else if(key == '2'){
-    prevValue = targetValue;
-    targetValue = 2;
+  }
+  
+  if((key == '0' || key == '1' || key == '2') &&  key - 48 != targetValue){
+    if(key == '0'){
+      prevValue = targetValue;
+      targetValue = 0;
+    }else if(key == '1'){
+      prevValue = targetValue;
+      targetValue = 1;
+    }else if(key == '2'){
+      prevValue = targetValue;
+      targetValue = 2;
+    }  
   }
 }
 
@@ -171,7 +180,7 @@ class Post{
     //Interaction
     if(isHovering(pos.x, pos.y, sqSize)){
       s -= 155;
-      fill(255);
+      fill(0);
       String myText = title + ", " + author + " (" + team + "). " + tags[0];
       text(myText, 20, height - 20);
     }
@@ -265,7 +274,7 @@ void parseData(){
     //Pushing it to the ArrayList
     allPosts.add(thisPost);
   }
-  println(allPosts.size());
+//  println(allPosts.size());
 }
 void setPosByClasses(){
   //Setting positions   

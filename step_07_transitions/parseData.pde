@@ -74,5 +74,5 @@ void parseData(){
     //Pushing it to the ArrayList
     allPosts.add(thisPost);
   }
-  println(allPosts.size());
+//  println(allPosts.size());
 }

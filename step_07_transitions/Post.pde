@@ -56,7 +56,7 @@ class Post{
     //Interaction
     if(isHovering(pos.x, pos.y, sqSize)){
       s -= 155;
-      fill(255);
+      fill(0);
       String myText = title + ", " + author + " (" + team + "). " + tags[0];
       text(myText, 20, height - 20);
     }

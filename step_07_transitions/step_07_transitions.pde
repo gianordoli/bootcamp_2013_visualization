@@ -41,7 +41,7 @@ int sqSize = 22;
 
 float value = 0;
 float prevValue = 0;
-float targetValue = 0;
+float targetValue = 2;
 
 void setup(){
   size(1333, 768);
@@ -77,6 +77,7 @@ void draw(){
   
   //Easing
   value += (targetValue - value) * 0.1;
+//  println(value);
   
   for(int i = 0; i < allPosts.size(); i++){
     Post thisPost = allPosts.get(i);
@@ -86,7 +87,7 @@ void draw(){
       pos.y = map(value, prevValue, targetValue, thisPost.positions.get(prevValue).y, thisPost.positions.get(targetValue).y);
     }else{
       pos.x = thisPost.positions.get(targetValue).x;
-      pos.y = thisPost.positions.get(targetValue).y;      
+      pos.y = thisPost.positions.get(targetValue).y;
     }
     thisPost.display(pos);
   }  
@@ -96,15 +97,19 @@ void keyPressed() {
   //By hitting space, we can switch between the two color modes
   if (key == ' ') {
     mode = (mode.equals("classes")) ? ("teams"):("classes");
-  }else if(key == '0'){
-    prevValue = targetValue;
-    targetValue = 0;
-  }else if(key == '1'){
-    prevValue = targetValue;
-    targetValue = 1;
-  }else if(key == '2'){
-    prevValue = targetValue;
-    targetValue = 2;
+  }
+  
+  if((key == '0' || key == '1' || key == '2') &&  key - 48 != targetValue){
+    if(key == '0'){
+      prevValue = targetValue;
+      targetValue = 0;
+    }else if(key == '1'){
+      prevValue = targetValue;
+      targetValue = 1;
+    }else if(key == '2'){
+      prevValue = targetValue;
+      targetValue = 2;
+    }  
   }
 }
 

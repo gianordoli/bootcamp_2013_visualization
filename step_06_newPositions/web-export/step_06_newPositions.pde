@@ -1,9 +1,16 @@
 /* ---------------------------------------------------------------------------
- Dorkshop: Data Visualization
+ Bootcamp 2013 Visualization
  MFADT, Parsons The New School for Design
- August 9th, 2014
+ August, 2014
  Gabriel Gianordoli
  http://gianordoli.com
+ 
+ Visualizing all posts from http://bootcamp.parsons.edu/2013/
+ Data Scraped with https://www.kimonolabs.com/
+ 
+ **IMPORTANT**
+ Because the HashMap functions are a bit different in JavaScript and Java,
+ this sketch only works in JavaScript mode. 
  
  * Parsing data and storing as objects
  * Drawing each post as a square
@@ -175,13 +182,13 @@ void parseData(){
     String title = trim(myLine[0]);
     
     //TITLE HREF
-    String titleHref = "";    
+    String titleHref = trim(myLine[1]);    
     
     //AUTHOR
-    String author = trim(myLine[1]);
+    String author = trim(myLine[2]);
     
     //AUTHOR HREF
-    String authorHref = trim(myLine[2]);
+    String authorHref = trim(myLine[3]);
     
     //TEAM
     String team = "faculty";
@@ -198,7 +205,7 @@ void parseData(){
     
     //TAGS
     //I want to store only code/design/web in tags. So...
-    String[] originalTags = split(trim(myLine[3]), ",");
+    String[] originalTags = split(trim(myLine[4]), ",");
 //    printArray(originalTags);
     String[] tags = new String[0];
     for(int j = 0; j < originalTags.length; j++){
@@ -214,7 +221,7 @@ void parseData(){
 //    printArray(tags);
 
     //DATE
-    String date = trim(myLine[4]);
+    String date = trim(myLine[5]);
     
     //Creating the object
     Post thisPost = new Post(title, titleHref, author, authorHref, team, tags, date);
@@ -222,7 +229,7 @@ void parseData(){
     //Pushing it to the ArrayList
     allPosts.add(thisPost);
   }
-//  println(allPosts.size());
+  println(allPosts.size());
 }
 void setPosByClasses(){
   //Setting positions   

@@ -22,7 +22,9 @@
  Next:
  - create buttons (colors: teams/classes; sort by: date/teams/classes)
  - create rollover description
- - finish html 
+ - finish html
+ - change color palletes
+ - replace hashmaps with 2D array
 --------------------------------------------------------------------------- */
 
 //Classes and teams will be stored in HashMaps ("name", index)
@@ -186,7 +188,7 @@ class Post{
     }
     
     fill(h, s, b, 240);
-    noStroke();
+    stroke(255);
     rect(pos.x, pos.y, sqSize, sqSize);
   }
 }

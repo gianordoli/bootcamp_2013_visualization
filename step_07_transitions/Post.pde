@@ -62,7 +62,7 @@ class Post{
     }
     
     fill(h, s, b, 240);
-    noStroke();
+    stroke(255);
     rect(pos.x, pos.y, sqSize, sqSize);
   }
 }
